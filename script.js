@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   // --- Variables ---
   const navItems = document.querySelectorAll('.nav-item');
@@ -24,15 +25,24 @@ document.addEventListener('DOMContentLoaded', () => {
   if (backButton) {
     backButton.addEventListener('click', () => {
       pages.forEach(page => page.classList.remove('active'));
-
-      const homePage = document.getElementById('inboxPage'); // adjust if needed
+      const homePage = document.getElementById('inboxPage');
       if (homePage) {
         homePage.classList.add('active');
       }
-
       if (dropdownMenu) {
         dropdownMenu.style.display = 'none';
       }
+    });
+  }
+
+  // --- Search Popup Toggle ---
+  if (searchTrigger && searchPopup && closePopup) {
+    searchTrigger.addEventListener('click', () => {
+      searchPopup.style.display = 'block';
+    });
+
+    closePopup.addEventListener('click', () => {
+      searchPopup.style.display = 'none';
     });
   }
 
@@ -40,27 +50,25 @@ document.addEventListener('DOMContentLoaded', () => {
   navItems.forEach(item => {
     item.addEventListener('click', () => {
       const targetId = item.dataset.page;
-      const textElement = item.querySelector('.text');
+      const textElement = item.querySelector('.label');
       const label = textElement ? textElement.textContent.trim() : '';
 
       // Page switching
       pages.forEach(page => page.classList.remove('active'));
-
       const targetPage = document.getElementById(targetId);
       if (targetPage) {
         targetPage.classList.add('active');
       }
-
       if (dropdownMenu) {
         dropdownMenu.style.display = 'none';
       }
 
       // Update Recents
       if (label && targetId) {
-        recentItems = recentItems.filter(obj => obj.label !== label); // Remove duplicate
-        recentItems.unshift({ label, pageId: targetId }); // Add to top
+        recentItems = recentItems.filter(obj => obj.label !== label);
+        recentItems.unshift({ label, pageId: targetId });
         if (recentItems.length > 5) {
-          recentItems.pop(); // Keep only 5
+          recentItems.pop();
         }
         updateRecentList();
       }
@@ -70,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Update the Recent List Dynamically ---
   function updateRecentList() {
     recentList.innerHTML = '';
-
+    
     recentItems.forEach(({ label, pageId }) => {
       const div = document.createElement('div');
       div.className = 'recent-item';
@@ -85,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         upcoming: "M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z",
         anytime: "M11.644 1.59a.75.75 0 0 1 .712 0l9.75 5.25a.75.75 0 0 1 0 1.32l-9.75 5.25a.75.75 0 0 1-.712 0l-9.75-5.25a.75.75 0 0 1 0-1.32l9.75-5.25Z",
         someday: "M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375Z",
-        logbook: "M7.502 6h7.128A3.375 3.375 0 0 1 18 9.375v9.375a3 3 0 0 0 3-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 0 0-.673-.05A3 3 0 0 0 15 1.5h-1.5a3 3 0 0 0-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6ZM13.5 3A1.5 1.5 0 0 0 12 4.5h4.5A1.5 1.5 0 0 0 15 3h-1.5Z",
+        logbook: "M7.502 6h7.128A3.375 3.375 0 0 1 18 9.375v9.375a3 3 0 0 0 3-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 0 0-.673-.05A3 3 0 0 0 15 1.5h-1.5a3 3 0 0 0-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6ZM13.5 3A1.5 1.5 0 0 0 12 4.5h4.5A1.5 1.5 0 0 0 15 3h-1.5Z"
       };
 
       const path = iconPaths[formattedLabel] || '';
@@ -111,3 +119,4 @@ document.addEventListener('DOMContentLoaded', () => {
       recentList.appendChild(div);
     });
   }
+});
