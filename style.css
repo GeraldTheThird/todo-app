@@ -1,4 +1,1090 @@
-html {
+html, body {
+  margin: 0;
+  padding: 0;
   height: 100%;
   width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
+  background: white;
+  overflow: auto;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: white;
+  position: relative;
+}
+
+.search-bar {
+  height: 30px;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  background-color: #E5E7EB;
+  border-radius: 12px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  color: #9CA3AF;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 3px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-popup {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100px; /* adjust depending on your design */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  z-index: 100;
+}
+
+.popup-header {
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.popup-search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.popup-search-input {
+  width: 100%;
+  min-height: 15px;
+  height: 15px;
+  padding: 6px 12px 6px 32px;
+  line-height: 1;
+  border: none;
+  border-radius: 10px;
+  background-color: #E5E7EB;
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  caret-color: #0b84e0;
+}
+
+.popup-search-input::placeholder {
+  color: #9CA3AF;
+  font-weight: 500; 
+}
+
+.popup-search-icon {
+  position: absolute;
+  left: 10px;
+  color: #9CA3AF;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.popup-close {
+  margin-left: 12px;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.recent-section {
+  margin-top: 4px;
+}
+.recent-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6d7178;
+  margin-bottom: 8px;
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recent-inbox-icon svg,
+.recent-today-icon svg,
+.recent-upcoming-icon svg,
+.recent-anytime-icon svg,
+.recent-someday-icon svg,
+.recent-logbook-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 24px;
+  gap: 32px;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.label {
+  font-size: 17px;
+  color: black;
+  font-weight: 500;
+}
+
+.inbox-icon svg,
+.today-icon svg,
+.upcoming-icon svg,
+.anytime-icon svg,
+.someday-icon svg,
+.logbook-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.inbox-icon svg {
+  color: #0b84e0;
+}
+
+.today-icon svg {
+  color: #fad900;
+}
+
+.upcoming-icon svg {
+  color: #cf074d;
+}
+
+.anytime-icon svg {
+  color: #418b78;
+}
+
+.someday-icon svg {
+  color: #b0a073;
+}
+
+.logbook-icon svg {
+  color: #30d158;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  max-width: none;
+  border: none;
+  background: #e5e7eb;
+}
+
+.meet-things-icon {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #9CA3AF;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.meet-things-label-main {
+  font-size: 17px;
+  color: black;
+}
+
+.settings-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 20px;
+}
+
+.settings-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: #9CA3AF;
+  stroke-width: 2;
+  fill: none;
+}
+
+.settings-label {
+  font-size: 14px;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+.plus-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #727aee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.plus-icon svg {
+  width: 26px;
+  height: 25px;
+  color: white;
+}
+
+.arrow-icon svg {
+  width: 18px;
+  height: 18px;
+  color: white;
+}
+
+.page {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.page.active {
+  display: block;
+  flex-direction: column;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  height: 100%;
+  position: relative;
+}
+
+.arrow-button {
+  width: 26px;
+  height: 26px;
+  color: #6d7178;
+}
+
+.inbox-wrapper {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.inbox-button {
+  width: 28px;
+  height: 28px;
+  color: #0b84e0;
+}
+
+.inbox-label {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  user-select: none;
+}
+
+.chevron-icon {
+  width: 14px;     
+  height: 55px;
+  color: #6d7178;
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-inbox-button {
+  width: 85px;
+  height: 85px;
+  color: #e6e6e6;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  height: 100%;
+}
+
+.arrow-button {
+  width: 26px;
+  height: 26px;
+  color: #6d7178;
+}
+
+.today-wrapper {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.today-button {
+  width: 28px;
+  height: 28px;
+  color: #fad900;
+}
+
+.today-label {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  user-select: none;
+}
+
+.chevron-icon {
+  width: 18px;
+  height: 18px;
+  color: #6d7178;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-today-button {
+  width: 85px;
+  height: 85px;
+  color: #e6e6e6;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  height: 100%;
+}
+
+.arrow-button {
+  width: 26px;
+  height: 26px;
+  color: #6d7178;
+}
+
+.upcoming-wrapper {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.upcoming-button {
+  width: 28px;
+  height: 28px;
+  color: #cf074d;
+}
+
+.upcoming-label {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.chevron-icon {
+  width: 18px;
+  height: 18px;
+  color: #6d7178;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-upcoming-button {
+  width: 85px;
+  height: 85px;
+  color: #e6e6e6;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  height: 100%;
+  /* Optional but helps it expand */
+}
+
+.arrow-button {
+  width: 26px;
+  height: 26px;
+  color: #6d7178;
+}
+
+.anytime-wrapper {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.anytime-button {
+  width: 28px;
+  height: 28px;
+  color: #418b78;
+}
+
+.anytime-label {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.chevron-icon {
+  width: 18px;
+  height: 18px;
+  color: #6d7178;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-anytime-button {
+  width: 85px;
+  height: 85px;
+  color: #e6e6e6;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  height: 100%;
+  /* Optional but helps it expand */
+}
+
+.arrow-button {
+  width: 26px;
+  height: 26px;
+  color: #6d7178;
+}
+
+.someday-wrapper {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.someday-button {
+  width: 28px;
+  height: 28px;
+  color: #b0a073;
+}
+
+.someday-label {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.chevron-icon {
+  width: 18px;
+  height: 18px;
+  color: #6d7178;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-someday-button {
+  width: 85px;
+  height: 85px;
+  color: #e6e6e6;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  height: 100%;
+  /* Optional but helps it expand */
+}
+
+.arrow-button {
+  width: 26px;
+  height: 26px;
+  color: #6d7178;
+}
+
+.logbook-wrapper {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.logbook-button {
+  width: 28px;
+  height: 28px;
+  color: #05b832;
+}
+
+.logbook-label {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.chevron-icon {
+  width: 18px;
+  height: 18px;
+  color: #6d7178;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-logbook-button {
+  width: 85px;
+  height: 85px;
+  color: #e6e6e6;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  height: 100%;
+}
+
+.arrow-button {
+  width: 26px;
+  height: 26px;
+  color: #6d7178;
+}
+
+.meet-things-wrapper {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.meet-things-button {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 3px solid  #004cc7;
+}
+
+.meet-things-label-alt {
+  font-weight: 500;
+  font-size: 25px;
+  margin: 0px;
+}
+
+.dots-wrapper {
+  cursor: pointer;
+  margin-left: 29px;
+  margin-top: 0px;
+}
+
+.dots-icon {
+  width: 50px;
+  height: 50px;
+  color: #6d7178;
+}
+
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.chevron-icon {
+  width: 18px;
+  height: 18px;
+  color: #6d7178;
+}
+
+.header-two {
+  color: #004cc7;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  margin-top: 20px;
+}
+
+.todo-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0px;
+}
+svg,
+.inbox-icon,
+.today-icon,
+.upcoming-icon,
+.anytime-icon,
+.someday-icon,
+.logbook-icon,
+.settings-icon,
+.circle-icon,
+.plus-icon,
+.arrow-icon {
+  pointer-events: none;
 }
