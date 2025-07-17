@@ -1,44 +1,53 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
+  max-width: 100vw;
+  overflow-y:  hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: white;
-  overflow: auto;
 }
 
 .app-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: white;
-  position: relative;
 }
 
+
 .search-bar {
-  height: 30px;
-  min-height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px auto;
   background-color: #E5E7EB;
   border-radius: 12px;
-  padding: 0 12px;
+  padding: 0 17px;
   box-sizing: border-box;
   color: #9CA3AF;
-  font-size: 14px;
-  font-weight: 500;
-  gap: 3px;
   width: 100%;
   max-width: 400px;
+  height: 32px;
+  min-height: 32px;
+  font-size: 16px;
+  font-weight: 500;
+  gap: 3px;
+}
+
+.search-icon {
+  width: 19px;
+  height: 19px;
+  stroke-width: 2;
 }
 
 .search-popup {
-  display: none; /* Hidden by default */
+  display: none;
+  /* Hidden by default */
   position: absolute;
-  top: 100px; /* adjust depending on your design */
+  top: 100px;
+  /* adjust depending on your design */
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -70,16 +79,11 @@ html, body {
   border: none;
   border-radius: 10px;
   background-color: #E5E7EB;
-  color: black;
+  color: #9CA3AF;
   font-size: 14px;
   font-weight: 500;
   outline: none;
   caret-color: #0b84e0;
-}
-
-.popup-search-input::placeholder {
-  color: #9CA3AF;
-  font-weight: 500; 
 }
 
 .popup-search-icon {
@@ -89,19 +93,23 @@ html, body {
   font-size: 14px;
   pointer-events: none;
   z-index: 1;
+  stroke-width: 2;
 }
 
 .popup-close {
   margin-left: 12px;
   color: black;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
 }
 
-.recent-section {
-  margin-top: 4px;
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
+
 .recent-title {
   font-size: 14px;
   font-weight: 600;
@@ -109,36 +117,71 @@ html, body {
   margin-bottom: 8px;
 }
 
-.recent-list {
+.recent-item {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 
-.recent-inbox-icon svg,
-.recent-today-icon svg,
-.recent-upcoming-icon svg,
-.recent-anytime-icon svg,
-.recent-someday-icon svg,
-.recent-logbook-icon svg {
-  width: 14px;
-  height: 14px;
-  fill: currentColor;
+.recent-inbox-button {
+  width: 21px;
+  height: 21px;
+  color: #0b84e0;
+}
+
+.recent-today-button {
+  width: 23px;
+  height: 23px;
+  color: #fad900;
+}
+
+.recent-upcoming-button {
+  width: 23px;
+  height: 23px;
+  color: #cf074d;
+}
+
+.recent-anytime-button {
+  width: 22px;
+  height: 22px;
+  color: #418b78;
+}
+
+.recent-someday-button {
+  width: 22px;
+  height: 22px;
+  color: #b0a073;
+}
+
+.recent-logbook-button {
+  width: 23px;
+  height: 23px;
+  color: #30d158;
+}
+
+.recent-label {
+  font-weight: 500;
+  font-size: 17px;
+  color: black;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
-  padding: 24px;
-  gap: 32px;
+  padding: 16px 0px;
+  flex-shrink: 0;
 }
 
-.nav-menu {
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-wrapper {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -147,135 +190,210 @@ html, body {
   gap: 14px;
 }
 
-.nav-item {
+.menu-item-row {
   display: flex;
   align-items: center;
-  gap: 8px;
   cursor: pointer;
 }
 
-.label {
-  font-size: 17px;
-  color: black;
-  font-weight: 500;
+.upcoming-button,
+.logbook-button {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-bottom: 3px;
 }
 
-.inbox-icon svg,
-.today-icon svg,
-.upcoming-icon svg,
-.anytime-icon svg,
-.someday-icon svg,
-.logbook-icon svg {
+.inbox-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inbox-button {
   width: 23px;
   height: 23px;
-}
-
-.inbox-icon svg {
   color: #0b84e0;
+  margin-bottom: 5px;
 }
 
-.today-icon svg {
+.inbox-item-label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 19px;
+  color: black;
+}
+.today-button {
+  width: 25px;
+  height: 25px;
   color: #fad900;
+  margin-bottom: 6px;
+  vertical-align: middle;
 }
 
-.upcoming-icon svg {
+.today-item-label {
+  font-weight: 600;
+  font-size: 19px;
+  color: black;
+}
+
+.upcoming-button {
   color: #cf074d;
+  margin-bottom: 6px;
 }
 
-.anytime-icon svg {
+.upcoming-item-label {
+  font-weight: 600;
+  font-size: 19px;
+  color: black;
+}
+
+.anytime-button-wrapper {
+  display: flex;
+  align-items: center; /* vertical alignment */
+  gap: 6px;
+}
+
+.anytime-button {
+  width: 24px;
+  height: 24px;
   color: #418b78;
 }
 
-.someday-icon svg {
-  color: #b0a073;
-}
-
-.logbook-icon svg {
-  color: #30d158;
-}
-
-.divider {
-  width: 100%;
-  height: 1px;
-  max-width: none;
-  border: none;
-  background: #e5e7eb;
-}
-
-.meet-things-icon {
-  width: 16px;
-  height: 16px;
-  border: 2px solid #9CA3AF;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.meet-things-label-main {
-  font-size: 17px;
+.anytime-item-label {
+  font-weight: 600;
+  font-size: 19px;
   color: black;
 }
 
-.settings-item {
+.someday-button-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 20px;
+  align-items: center; /* vertical alignment */
+  gap: 6px;
 }
 
-.settings-icon svg {
-  width: 16px;
-  height: 16px;
-  stroke: #9CA3AF;
+.someday-button {
+  width: 24px;
+  height: 24px;
+  color: #b0a073;
+}
+
+.someday-item-label {
+  font-weight: 600;
+  font-size: 19px;
+  color: black;
+}
+
+.logbook-button {
+  color: #30d158;
+}
+
+.logbook-item-label {
+  font-weight: 600;
+  font-size: 19px;
+  color: black;
+}
+
+.divider {
+  display: block;
+  height: 1px;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.meet-things-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meet-things-button {
+  width: 17px;
+  height: 17px;
+  /* Fill the inside with white */
+  border: 2px solid #959595d3;
+  /* Gray border */
+  border-radius: 50%;
+  /* Makes it a circle */
+  display: inline-block;
+}
+
+.meet-things-label {
+  font-size: 19px;
+  font-weight: 600;
+  color: black;
+}
+
+.sidebar-bottom {
+  margin-top: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px; /* spacing between the plus button and settings */
+}
+
+.settings-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.settings-button {
+  width: 20px;
+  height: 20px;
+  stroke: #959595d3;
   stroke-width: 2;
   fill: none;
 }
 
 .settings-label {
-  font-size: 14px;
-  color: #9CA3AF;
+  font-size: 16px;
+  color: #959595d3;
   font-weight: 500;
 }
 
+.plus-button-wrapper {
+  margin-left: 325px;
+}
 .plus-button {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
+  background-color: #3c82f6;
   border-radius: 50%;
-  background-color: #727aee;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  padding: 0;
 }
 
 .plus-icon svg {
-  width: 26px;
-  height: 25px;
+  width: 21px;
+  height: 21px;
   color: white;
 }
 
 .arrow-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 13px;
+  height: 13px;
   color: white;
 }
 
 .page {
-  display: none;
   height: 100vh;
-  width: 100%;
-  position: relative;
+  display: none;
 }
 
 .page.active {
   display: block;
-  flex-direction: column;
 }
 
 .top-section {
@@ -283,32 +401,25 @@ html, body {
   flex-direction: column;
   padding: 16px;
   gap: 8px;
-  height: 100%;
   position: relative;
 }
 
-.arrow-button {
-  width: 26px;
-  height: 26px;
-  color: #6d7178;
-}
-
-.inbox-wrapper {
+.top-buttons {
   display: flex;
-  margin-top: 25px;
-  margin-left: 7px;
-  gap: 6px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: 24px;
+  width: 100%;
 }
 
-.inbox-button {
-  width: 28px;
-  height: 28px;
-  color: #0b84e0;
-}
-
-.inbox-label {
-  font-weight: 500;
-  font-size: 25px;
+.arrow-button {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0; /* reset any unwanted spacing */
+  color: #6d7178;
 }
 
 .circle-button {
@@ -316,20 +427,23 @@ html, body {
   height: 26px;
   border-radius: 50%;
   border: 2px solid #6d7178;
-  top: 24px;
-  right: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   user-select: none;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Keep icon sizes consistent */
+
 .chevron-icon {
-  width: 14px;     
-  height: 55px;
-  color: #6d7178;
+  width: 22px;
+  height: 22px;
   display: block;
+  vertical-align: middle;
+  margin: 0; /* reset any unwanted spacing */
+  color: #6d7178;
 }
 
 .dropdown-menu {
@@ -370,7 +484,8 @@ html, body {
   width: 20px;
   height: 20px;
   margin-right: 12px;
-  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
+  color: #60a5fadd;
+  /* Light blue like your screenshot (adjust if needed) */
 }
 
 .dropdown-label-grey {
@@ -383,7 +498,27 @@ html, body {
   color: white;
 }
 
-.center-icon {
+.header-inbox-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.header-inbox-icon {
+  width: 26px;
+  height: 26px;
+  color: #0b84e0;
+  margin-top: 2px;
+}
+
+.header-inbox-label {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.center-icon-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -393,7 +528,7 @@ html, body {
   align-items: center;
 }
 
-.center-inbox-button {
+.center-inbox-icon {
   width: 85px;
   height: 85px;
   color: #e6e6e6;
@@ -404,31 +539,171 @@ html, body {
   flex-direction: column;
   padding: 16px;
   gap: 8px;
-  height: 100%;
+  position: relative;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: 24px;
+  width: 100%;
 }
 
 .arrow-button {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0; /* reset any unwanted spacing */
   color: #6d7178;
 }
 
-.today-wrapper {
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Keep icon sizes consistent */
+
+.chevron-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0; /* reset any unwanted spacing */
+  color: #6d7178;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60a5fadd;
+  /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.header-today-wrapper {
+  display: flex;
+  align-items: center;
   margin-top: 25px;
   margin-left: 7px;
   gap: 6px;
 }
 
-.today-button {
+.header-today-icon {
   width: 28px;
   height: 28px;
   color: #fad900;
+  margin-top: 1px;
 }
 
-.today-label {
-  font-weight: 500;
+.header-today-label {
+  font-weight: 600;
   font-size: 25px;
+}
+
+.center-icon-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-today-icon {
+  width: 85px;
+  height: 85px;
+  color: #e6e6e6;
+}
+
+#upcomingPage {
+  overflow-y: auto;
+  overflow-x: hidden; /* ← blocks left/right scrolling */
+  min-height: 100vh;
+  background: white;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  position: relative;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.arrow-button {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0; /* reset any unwanted spacing */
+  color: #6d7178;
 }
 
 .circle-button {
@@ -436,18 +711,21 @@ html, body {
   height: 26px;
   border-radius: 50%;
   border: 2px solid #6d7178;
-  top: 24px;
-  right: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   user-select: none;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Keep icon sizes consistent */
 .chevron-icon {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0; /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -470,6 +748,7 @@ html, body {
   align-items: center;
   padding: 10px 16px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease;
 }
@@ -489,7 +768,8 @@ html, body {
   width: 20px;
   height: 20px;
   margin-right: 12px;
-  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
+  color: #60a5fadd;
+  /* Light blue like your screenshot (adjust if needed) */
 }
 
 .dropdown-label-grey {
@@ -502,52 +782,139 @@ html, body {
   color: white;
 }
 
-.center-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.header-upcoming-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.center-today-button {
-  width: 85px;
-  height: 85px;
-  color: #e6e6e6;
-}
-
-.top-section {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  gap: 8px;
-  height: 100%;
-}
-
-.arrow-button {
-  width: 26px;
-  height: 26px;
-  color: #6d7178;
-}
-
-.upcoming-wrapper {
-  display: flex;
   margin-top: 25px;
   margin-left: 7px;
   gap: 6px;
 }
 
-.upcoming-button {
+.header-upcoming-icon {
   width: 28px;
   height: 28px;
   color: #cf074d;
+  margin-top: 2px;
 }
 
-.upcoming-label {
-  font-weight: 500;
+.header-upcoming-label {
+  font-weight: 600;
   font-size: 25px;
+}
+
+.calendar-events-box {
+  padding: 42px 15px;
+  background-color: #e6e6e6dd;
+  border-radius: 8px;
+  text-align: left;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calendar-events-box h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: black;
+}
+
+.calendar-events-box p {
+  font-size: 14px;
+  margin: 10px 0 20px;
+  color: black;
+  text-align: center;
+}
+
+.calendar-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-filled {
+  background-color: #6072fd;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.calendar-list {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.calendar-item {
+  border-top: 1px solid #959595c8;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 3px 0px 40px 0px;
+}
+
+.calendar-item-date {
+  font-weight: 600;
+  font-size: 30px;
+  width: 40px;
+  color: #000000;
+}
+
+.calendar-item-day {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6d7178;
+}
+
+.calendar-row {
+  border-top: 1px solid #959595c8;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 3px 0px 25px 0px;
+}
+
+.calendar-row-month {
+  font-weight: 600;
+  font-size: 16px;
+  width: 40px;
+  color: #000000;
+}
+
+.calendar-row-number {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6d7178;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  position: relative;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.arrow-button {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0; /* reset any unwanted spacing */
+  color: #6d7178;
 }
 
 .circle-button {
@@ -555,17 +922,22 @@ html, body {
   height: 26px;
   border-radius: 50%;
   border: 2px solid #6d7178;
-  top: 24px;
-  right: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  user-select: none;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Keep icon sizes consistent */
+
 .chevron-icon {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0; /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -588,6 +960,7 @@ html, body {
   align-items: center;
   padding: 10px 16px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease;
 }
@@ -607,7 +980,8 @@ html, body {
   width: 20px;
   height: 20px;
   margin-right: 12px;
-  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
+  color: #60a5fadd;
+  /* Light blue like your screenshot (adjust if needed) */
 }
 
 .dropdown-label-grey {
@@ -620,471 +994,67 @@ html, body {
   color: white;
 }
 
-.center-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.header-anytime-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.center-upcoming-button {
-  width: 85px;
-  height: 85px;
-  color: #e6e6e6;
-}
-
-.top-section {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  gap: 8px;
-  height: 100%;
-  /* Optional but helps it expand */
-}
-
-.arrow-button {
-  width: 26px;
-  height: 26px;
-  color: #6d7178;
-}
-
-.anytime-wrapper {
-  display: flex;
   margin-top: 25px;
   margin-left: 7px;
   gap: 6px;
 }
 
-.anytime-button {
-  width: 28px;
-  height: 28px;
+.header-anytime-icon {
+  width: 27px;
+  height: 27px;
   color: #418b78;
 }
 
-.anytime-label {
-  font-weight: 500;
+.header-anytime-label {
+  font-weight: 600;
   font-size: 25px;
 }
 
-.circle-button {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2px solid #6d7178;
-  top: 24px;
-  right: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-}
-
-.chevron-icon {
-  width: 18px;
-  height: 18px;
-  color: #6d7178;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 60px;
-  right: 16px;
-  background-color: #1f1f1f;
-  color: white;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-  width: 160px;
-  z-index: 10;
-  padding: 8px 0;
-}
-
-.dropdown-item {
+.subheader-meet-things-wrapper {
   display: flex;
   align-items: center;
-  padding: 10px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.dropdown-item:hover {
-  background-color: #2a2a2a;
-}
-
-.grey-dropdown-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  color: #6d7178;
-}
-
-.blue-dropdown-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
-}
-
-.dropdown-label-grey {
-  font-size: 16px;
-  color: #6d7178;
-}
-
-.dropdown-label-white {
-  font-size: 16px;
-  color: white;
-}
-
-.center-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center-anytime-button {
-  width: 85px;
-  height: 85px;
-  color: #e6e6e6;
-}
-
-.top-section {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  gap: 8px;
-  height: 100%;
-  /* Optional but helps it expand */
-}
-
-.arrow-button {
-  width: 26px;
-  height: 26px;
-  color: #6d7178;
-}
-
-.someday-wrapper {
-  display: flex;
+  border-bottom: 1px solid #959595c8;
   margin-top: 25px;
   margin-left: 7px;
   gap: 6px;
+  padding-bottom: 8px;
 }
 
-.someday-button {
-  width: 28px;
-  height: 28px;
-  color: #b0a073;
-}
-
-.someday-label {
-  font-weight: 500;
-  font-size: 25px;
-}
-
-.circle-button {
-  width: 26px;
-  height: 26px;
+.subheader-meet-things-icon {
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  border: 2px solid #6d7178;
-  top: 24px;
-  right: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
+  border: 3px solid #0542a3a3;
 }
 
-.chevron-icon {
-  width: 18px;
-  height: 18px;
-  color: #6d7178;
+.subheader-meet-things-label {
+  font-weight: 600;
+  font-size: 18px;
 }
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 60px;
-  right: 16px;
-  background-color: #1f1f1f;
-  color: white;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-  width: 160px;
-  z-index: 10;
-  padding: 8px 0;
-}
-
-.dropdown-item {
+.meet-things-list {
   display: flex;
   align-items: center;
-  padding: 10px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.dropdown-item:hover {
-  background-color: #2a2a2a;
-}
-
-.grey-dropdown-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  color: #6d7178;
-}
-
-.blue-dropdown-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
-}
-
-.dropdown-label-grey {
-  font-size: 16px;
-  color: #6d7178;
-}
-
-.dropdown-label-white {
-  font-size: 16px;
-  color: white;
-}
-
-.center-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center-someday-button {
-  width: 85px;
-  height: 85px;
-  color: #e6e6e6;
-}
-
-.top-section {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  gap: 8px;
-  height: 100%;
-  /* Optional but helps it expand */
-}
-
-.arrow-button {
-  width: 26px;
-  height: 26px;
-  color: #6d7178;
-}
-
-.logbook-wrapper {
-  display: flex;
-  margin-top: 25px;
-  margin-left: 7px;
-  gap: 6px;
-}
-
-.logbook-button {
-  width: 28px;
-  height: 28px;
-  color: #05b832;
-}
-
-.logbook-label {
-  font-weight: 500;
-  font-size: 25px;
-}
-
-.circle-button {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2px solid #6d7178;
-  top: 24px;
-  right: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-}
-
-.chevron-icon {
-  width: 18px;
-  height: 18px;
-  color: #6d7178;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 60px;
-  right: 16px;
-  background-color: #1f1f1f;
-  color: white;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-  width: 160px;
-  z-index: 10;
-  padding: 8px 0;
-}
-
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  padding: 10px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.dropdown-item:hover {
-  background-color: #2a2a2a;
-}
-
-.grey-dropdown-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  color: #6d7178;
-}
-
-.blue-dropdown-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  color: #60A5FA; /* Light blue like your screenshot (adjust if needed) */
-}
-
-.dropdown-label-grey {
-  font-size: 16px;
-  color: #6d7178;
-}
-
-.dropdown-label-white {
-  font-size: 16px;
-  color: white;
-}
-
-.center-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center-logbook-button {
-  width: 85px;
-  height: 85px;
-  color: #e6e6e6;
-}
-
-.top-section {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  gap: 8px;
-  height: 100%;
-}
-
-.arrow-button {
-  width: 26px;
-  height: 26px;
-  color: #6d7178;
-}
-
-.meet-things-wrapper {
-  display: flex;
-  margin-top: 25px;
-  margin-left: 7px;
-  gap: 6px;
-}
-
-.meet-things-button {
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  border: 3px solid  #004cc7;
-}
-
-.meet-things-label-alt {
-  font-weight: 500;
-  font-size: 25px;
-  margin: 0px;
-}
-
-.dots-wrapper {
-  cursor: pointer;
-  margin-left: 29px;
-  margin-top: 0px;
-}
-
-.dots-icon {
-  width: 50px;
-  height: 50px;
-  color: #6d7178;
-}
-
-.circle-button {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2px solid #6d7178;
-  top: 24px;
-  right: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-}
-
-.chevron-icon {
-  width: 18px;
-  height: 18px;
-  color: #6d7178;
-}
-
-.header-two {
-  color: #004cc7;
-}
-
-.section-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
   margin-top: 20px;
+  margin-left: 9px;
+  gap: 6px;
+  font-weight: 400;
 }
 
-.todo-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0px;
+.bullet-icon {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #959595c8;
+  border-radius: 5px;
+  /* This gives it the "not-quite-circle" look */
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
-svg,
-.inbox-icon,
-.today-icon,
-.upcoming-icon,
-.anytime-icon,
-.someday-icon,
-.logbook-icon,
-.settings-icon,
-.circle-icon,
-.plus-icon,
-.arrow-icon {
-  pointer-events: none;
+
+.bullet-icon {
+  margin-top: 3px;
 }
