@@ -4,7 +4,7 @@ body {
   padding: 0;
   height: 100%;
   max-width: 100vw;
-  overflow-y:  hidden;
+  overflow-y: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: white;
 }
@@ -227,6 +227,7 @@ body {
   font-size: 19px;
   color: black;
 }
+
 .today-button {
   width: 25px;
   height: 25px;
@@ -254,7 +255,8 @@ body {
 
 .anytime-button-wrapper {
   display: flex;
-  align-items: center; /* vertical alignment */
+  align-items: center;
+  /* vertical alignment */
   gap: 6px;
 }
 
@@ -272,7 +274,8 @@ body {
 
 .someday-button-wrapper {
   display: flex;
-  align-items: center; /* vertical alignment */
+  align-items: center;
+  /* vertical alignment */
   gap: 6px;
 }
 
@@ -338,7 +341,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px; /* spacing between the plus button and settings */
+  gap: 24px;
+  /* spacing between the plus button and settings */
 }
 
 .settings-wrapper {
@@ -366,6 +370,7 @@ body {
 .plus-button-wrapper {
   margin-left: 325px;
 }
+
 .plus-button {
   width: 40px;
   height: 40px;
@@ -422,7 +427,8 @@ body {
   height: 22px;
   display: block;
   vertical-align: middle;
-  margin: 0; /* reset any unwanted spacing */
+  margin: 0;
+  /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -446,7 +452,8 @@ body {
   height: 22px;
   display: block;
   vertical-align: middle;
-  margin: 0; /* reset any unwanted spacing */
+  margin: 0;
+  /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -560,7 +567,8 @@ body {
   height: 22px;
   display: block;
   vertical-align: middle;
-  margin: 0; /* reset any unwanted spacing */
+  margin: 0;
+  /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -584,7 +592,8 @@ body {
   height: 22px;
   display: block;
   vertical-align: middle;
-  margin: 0; /* reset any unwanted spacing */
+  margin: 0;
+  /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -679,7 +688,8 @@ body {
 
 #upcomingPage {
   overflow-y: auto;
-  overflow-x: hidden; /* ← blocks left/right scrolling */
+  overflow-x: hidden;
+  /* ← blocks left/right scrolling */
   min-height: 100vh;
   background: white;
 }
@@ -706,7 +716,8 @@ body {
   height: 22px;
   display: block;
   vertical-align: middle;
-  margin: 0; /* reset any unwanted spacing */
+  margin: 0;
+  /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -729,7 +740,8 @@ body {
   height: 22px;
   display: block;
   vertical-align: middle;
-  margin: 0; /* reset any unwanted spacing */
+  margin: 0;
+  /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -917,7 +929,8 @@ body {
   height: 22px;
   display: block;
   vertical-align: middle;
-  margin: 0; /* reset any unwanted spacing */
+  margin: 0;
+  /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -941,7 +954,8 @@ body {
   height: 22px;
   display: block;
   vertical-align: middle;
-  margin: 0; /* reset any unwanted spacing */
+  margin: 0;
+  /* reset any unwanted spacing */
   color: #6d7178;
 }
 
@@ -1061,4 +1075,376 @@ body {
 
 .bullet-icon {
   margin-top: 3px;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  position: relative;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.arrow-button {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0;
+  /* reset any unwanted spacing */
+  color: #6d7178;
+}
+
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Keep icon sizes consistent */
+
+.chevron-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0;
+  /* reset any unwanted spacing */
+  color: #6d7178;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60a5fadd;
+  /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.header-someday-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.header-someday-icon {
+  width: 28px;
+  height: 28px;
+  color: #b0a073;
+  margin-top: 1px;
+}
+
+.header-someday-label {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.center-someday-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-someday-icon {
+  width: 85px;
+  height: 85px;
+  color: #e6e6e6;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  position: relative;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.arrow-button {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0;
+  /* reset any unwanted spacing */
+  color: #6d7178;
+}
+
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Keep icon sizes consistent */
+
+.chevron-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0;
+  /* reset any unwanted spacing */
+  color: #6d7178;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60a5fadd;
+  /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.header-logbook-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.header-logbook-icon {
+  width: 28px;
+  height: 28px;
+  color: #30d158;
+  margin-top: 1px;
+}
+
+.header-logbook-label {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Months & entries */
+.month {
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
+.month h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin: 18px 0 10px;
+  letter-spacing: .6px;
+}
+
+.divider {
+  border-bottom: 1px solid var(--divider); /* or a hex like #e0e0e0 */
+  margin: 4px 0; /* space above/below the line */
+  width: 100%;
+}
+
+
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--divider);
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+}
+
+/* Check icon */
+.checked-rect-button {
+  color: #0542a3a3;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  display: inline-grid;
+  place-items: center;
+}
+
+.date {
+  color: #0542a3a3;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.title-text {
+  color:  #6b7178;
+}
+.month {
+  margin-top: 10px;
+}
+
+.month h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin: 18px 0 10px;
+  letter-spacing: .6px;
+}
+
+.divider {
+  border-bottom: 1px solid var(--divider); /* or a hex like #e0e0e0 */
+  margin: 4px 0; /* space above/below the line */
+  width: 100%;
+}
+
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--divider);
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+}
+
+/* Check icon */
+.checked-rect-button {
+  color: #0542a3a3;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  display: inline-grid;
+  place-items: center;
+}
+
+.date {
+  color: #0542a3a3;
+  font-size: 14px;
+  font-weight: 600;
 }
