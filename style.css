@@ -200,14 +200,6 @@ body {
   cursor: pointer;
 }
 
-.upcoming-button,
-.logbook-button {
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  margin-bottom: 3px;
-}
-
 .inbox-button-wrapper {
   display: flex;
   align-items: center;
@@ -218,22 +210,25 @@ body {
   width: 23px;
   height: 23px;
   color: #0b84e0;
-  margin-bottom: 5px;
+  margin-top: 2px;
 }
 
 .inbox-item-label {
-  margin-bottom: 6px;
   font-weight: 600;
   font-size: 19px;
   color: black;
+}
+
+.today-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .today-button {
   width: 25px;
   height: 25px;
   color: #fad900;
-  margin-bottom: 6px;
-  vertical-align: middle;
 }
 
 .today-item-label {
@@ -242,9 +237,16 @@ body {
   color: black;
 }
 
+.upcoming-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .upcoming-button {
+  width: 25px;
+  height: 25px;
   color: #cf074d;
-  margin-bottom: 6px;
 }
 
 .upcoming-item-label {
@@ -256,7 +258,6 @@ body {
 .anytime-button-wrapper {
   display: flex;
   align-items: center;
-  /* vertical alignment */
   gap: 6px;
 }
 
@@ -264,6 +265,7 @@ body {
   width: 24px;
   height: 24px;
   color: #418b78;
+  margin-top: 2px;
 }
 
 .anytime-item-label {
@@ -275,7 +277,6 @@ body {
 .someday-button-wrapper {
   display: flex;
   align-items: center;
-  /* vertical alignment */
   gap: 6px;
 }
 
@@ -283,6 +284,7 @@ body {
   width: 24px;
   height: 24px;
   color: #b0a073;
+  margin-top: 2px;
 }
 
 .someday-item-label {
@@ -291,8 +293,17 @@ body {
   color: black;
 }
 
+.logbook-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .logbook-button {
+  width: 25px;
+  height: 25px;
   color: #30d158;
+  margin-top: 2px;
 }
 
 .logbook-item-label {
@@ -322,12 +333,9 @@ body {
 .meet-things-button {
   width: 17px;
   height: 17px;
-  /* Fill the inside with white */
   border: 2px solid #959595d3;
-  /* Gray border */
   border-radius: 50%;
-  /* Makes it a circle */
-  display: inline-block;
+  margin-top: 3px;
 }
 
 .meet-things-label {
@@ -363,8 +371,9 @@ body {
 
 .settings-label {
   font-size: 16px;
-  color: #959595d3;
   font-weight: 500;
+  margin-bottom: 3px;
+  color: #959595d3;
 }
 
 .plus-button-wrapper {
@@ -662,7 +671,6 @@ body {
   width: 28px;
   height: 28px;
   color: #fad900;
-  margin-top: 1px;
 }
 
 .header-today-label {
@@ -810,7 +818,6 @@ body {
   width: 28px;
   height: 28px;
   color: #cf074d;
-  margin-top: 2px;
 }
 
 .header-upcoming-label {
@@ -1024,6 +1031,7 @@ body {
   width: 27px;
   height: 27px;
   color: #418b78;
+  margin-top: 2px;
 }
 
 .header-anytime-label {
@@ -1191,10 +1199,10 @@ body {
 }
 
 .header-someday-icon {
-  width: 28px;
-  height: 28px;
+  width: 27px;
+  height: 27px;
   color: #b0a073;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .header-someday-label {
@@ -1335,7 +1343,7 @@ body {
   width: 28px;
   height: 28px;
   color: #30d158;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .header-logbook-label {
@@ -1362,8 +1370,10 @@ body {
 }
 
 .divider {
-  border-bottom: 1px solid var(--divider); /* or a hex like #e0e0e0 */
-  margin: 4px 0; /* space above/below the line */
+  border-bottom: 1px solid var(--divider);
+  /* or a hex like #e0e0e0 */
+  margin: 4px 0;
+  /* space above/below the line */
   width: 100%;
 }
 
@@ -1378,7 +1388,68 @@ body {
 .entry {
   display: flex;
   align-items: center;
+  gap: 5px;
+  padding: 14px 0;
+}
+
+/* Check icon */
+.checked-rect-button {
+  color: #0542a3a3;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  display: inline-grid;
+  place-items: center;
+}
+
+.may-title-wrapper {
+  display: flex;
   gap: 12px;
+}
+
+.date {
+  color: #0542a3a3;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.title-text {
+  color: #6b7178;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.month {
+  margin-top: 10px;
+}
+
+.month h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin: 18px 0 10px;
+  letter-spacing: .6px;
+}
+
+.divider {
+  border-bottom: 1px solid var(--divider);
+  /* or a hex like #e0e0e0 */
+  margin: 4px 0;
+  /* space above/below the line */
+  width: 100%;
+}
+
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0;
+  border-top: 1px solid var(--divider);
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   padding: 14px 0;
 }
 
@@ -1399,52 +1470,223 @@ body {
 }
 
 .title-text {
-  color:  #6b7178;
-}
-.month {
-  margin-top: 10px;
-}
-
-.month h2 {
-  font-size: 16px;
-  font-weight: 700;
-  color: #000000;
-  margin: 18px 0 10px;
-  letter-spacing: .6px;
+  color: #6b7178;
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.divider {
-  border-bottom: 1px solid var(--divider); /* or a hex like #e0e0e0 */
-  margin: 4px 0; /* space above/below the line */
+.top-section {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+  position: relative;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: 24px;
   width: 100%;
 }
 
-.entries {
-  list-style: none;
+.arrow-button {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
   margin: 0;
-  padding: 10px 0 0;
-  border-top: 1px solid var(--divider);
+  /* reset any unwanted spacing */
+  color: #6d7178;
 }
 
-.entry {
+.circle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #6d7178;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Keep icon sizes consistent */
+
+.chevron-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  vertical-align: middle;
+  margin: 0;
+  /* reset any unwanted spacing */
+  color: #6d7178;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 160px;
+  z-index: 10;
+  padding: 8px 0;
+}
+
+.dropdown-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 0;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-/* Check icon */
-.checked-rect-button {
+.dropdown-item:hover {
+  background-color: #2a2a2a;
+}
+
+.grey-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #6d7178;
+}
+
+.blue-dropdown-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  color: #60a5fadd;
+  /* Light blue like your screenshot (adjust if needed) */
+}
+
+.dropdown-label-grey {
+  font-size: 16px;
+  color: #6d7178;
+}
+
+.dropdown-label-white {
+  font-size: 16px;
+  color: white;
+}
+
+.header-meet-things-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  margin-left: 7px;
+  gap: 6px;
+}
+
+.header-meet-things-icon {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #0542a3a3;
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+.header-meet-things-label {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.icon-btn-dots {
+  color: #6d7178;
+  width: 30px;
+  height: 30px;
+  margin-left: 50px;
+}
+
+.btn-dots-paragraph {
+  color: #0b0b0c;
+  margin-left: 25px;
+}
+
+.guide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: #0542a3a3;
+  margin: 50px 0px 0px 25px;
+}
+
+.guide-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+ .guide-divider {
+  border-bottom: 1px solid #e0e0e0;
+  width: 80%;
+} 
+
+/*.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0 0;
+}
+
+.todo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.check-empty {
   width: 22px;
   height: 22px;
   flex: 0 0 22px;
-  display: inline-grid;
-  place-items: center;
+  border: 2px solid var(--checkbox);
+  border-radius: 6px;
+  display: inline-block;
 }
 
-.date {
-  color: #0542a3a3;
-  font-size: 14px;
-  font-weight: 600;
+.todo-text {
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.25;
+  flex: 1 1 auto;
 }
+
+.doc-icon {
+  width: 14px;
+  height: 18px;
+  flex: 0 0 14px;
+  border: 1.6px solid var(--doc);
+  border-radius: 2px;
+  position: relative;
+}
+
+.doc-icon::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 4px;
+  border-top: 1.4px solid var(--doc);
+  opacity: .9;
+}
+
+/* .guide-section+.guide-section {
+  margin-top: 28px;
+}
+
+.todo-row {
+  cursor: pointer;
+}
+
+.todo-row:hover .todo-text {
+  color: #2c3137;
+} */

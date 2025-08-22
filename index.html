@@ -119,7 +119,6 @@
             </li>
           </ul>
           <div class="sidebar-bottom">
-
             <div id="settingsButton" class="settings-wrapper">
               <svg class="settings-button" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke-width="1.5" stroke="currentColor">
@@ -657,8 +656,10 @@
                   stroke-linejoin="round" />
               </svg>
             </span>
-            <span class="date">5/9</a>
+            <div class="may-title-wrapper">
+              <span class="date">5/9</span>
               <span class="title-text">New To-Do</span>
+            </div>
           </li>
         </ul>
       </section>
@@ -675,14 +676,137 @@
                   stroke-linejoin="round" />
               </svg>
             </span>
-            <span class="date">4/25</a>
-              <span class="title-text">New To-Do</span>
+            <span class="date">4/25</span>
+            <span class="title-text">New To-Do</span>
           </li>
         </ul>
       </section>
     </div>
-  </div>
-  <script src="script.js" defer></script>
+    <div id="meet-thingsPage" class="page">
+      <div class="top-section">
+        <div class="top-buttons">
+          <div class="arrow-wrapper">
+            <svg id="backButton" class="arrow-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="currentColor" stroke-width="2">
+              <path fill-rule="evenodd"
+                d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="circle-button">
+            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              stroke-width="2">
+              <path fill-rule="evenodd"
+                d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z"
+                clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+        <div class="dropdown-menu">
+          <div class="dropdown-item">
+            <svg class="grey-dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+            </svg>
+            <span class="dropdown-label-grey">Filter by Tag</span>
+          </div>
+          <div class="dropdown-item">
+            <svg class="grey-dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+            <span class="dropdown-label-grey">Select</span>
+          </div>
+          <div class="dropdown-item">
+            <svg class="blue-dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+            </svg>
+            <span class="dropdown-label-white">Paste</span>
+          </div>
+          <div class="dropdown-item">
+            <svg class="blue-dropdown-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15" />
+            </svg>
+            <span class="dropdown-label-white">Share</span>
+          </div>
+        </div>
+        <div class="header-meet-things-wrapper">
+          <span class="header-meet-things-icon"></span>
+          <span class="header-meet-things-label">Meet Things for iPhone</span>
+        </div>
+      </div>
+      <section class="guide-section">
+        <svg class="icon-btn-dots" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+          <path
+            d="M96 320C96 289.1 121.1 264 152 264C182.9 264 208 289.1 208 320C208 350.9 182.9 376 152 376C121.1 376 96 350.9 96 320zM264 320C264 289.1 289.1 264 320 264C350.9 264 376 289.1 376 320C376 350.9 350.9 376 320 376C289.1 376 264 350.9 264 320zM488 264C518.9 264 544 289.1 544 320C544 350.9 518.9 376 488 376C457.1 376 432 350.9 432 320C432 289.1 457.1 264 488 264z" />
+        </svg>
+        <p class="btn-dots-paragraph">
+          This project shows you everything you need to know to hit the ground running. Don't hesitate to play around in
+          it - you can always create a new one from settings.
+        </p>
+        <header class="guide-header">
+          <h3 class="guide-title">Learn the basics</h3>
+        </header>
+        <div class="guide-divider"></div>
+        <!-- <ul class="todo-list">
+          <li class="todo-row">
+            <span class="check-empty" aria-hidden="true"></span>
+            <span class="todo-text">Tap this to-do</span>
+            <span class="doc-icon" aria-hidden="true"></span>
+          </li>
+          <li class="todo-row">
+            <span class="check-empty" aria-hidden="true"></span>
+            <span class="todo-text">Create a new to-do</span>
+            <span class="doc-icon" aria-hidden="true"></span>
+          </li>
+          <li class="todo-row">
+            <span class="check-empty" aria-hidden="true"></span>
+            <span class="todo-text">Put this to-do in Today</span>
+            <span class="doc-icon" aria-hidden="true"></span>
+          </li>
+          <li class="todo-row">
+            <span class="check-empty" aria-hidden="true"></span>
+            <span class="todo-text">Plan this to-do for later</span>
+            <span class="doc-icon" aria-hidden="true"></span>
+          </li>
+          <li class="todo-row">
+            <span class="check-empty" aria-hidden="true"></span>
+            <span class="todo-text">Reorder your to-dos</span>
+            <span class="doc-icon" aria-hidden="true"></span>
+          </li>
+          <li class="todo-row">
+            <span class="check-empty" aria-hidden="true"></span>
+            <span class="todo-text">Create a project</span>
+            <span class="doc-icon" aria-hidden="true"></span>
+          </li>
+          <li class="todo-row">
+            <span class="check-empty" aria-hidden="true"></span>
+            <span class="todo-text">Organize with areas</span>
+            <span class="doc-icon" aria-hidden="true"></span>
+          </li>
+          <li class="todo-row">
+            <span class="check-empty" aria-hidden="true"></span>
+            <span class="todo-text">You’re done!</span>
+            <span class="doc-icon" aria-hidden="true"></span>
+          </li>
+        </ul>
+      </section>
+       <section class="guide-section">
+        <header class="guide-header">
+          <h3 class="guide-title">Tune your setup</h3>
+        </header>
+        <div class="guide-divider"></div> -->
+      </section>
+    </div>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
