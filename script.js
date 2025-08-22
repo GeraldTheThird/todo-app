@@ -107,6 +107,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // === Drop-down show/toggle ===
+
+// selector covers either spelling
+const DROPDOWN_SELECTOR = '.drop-down-menu, .dropdown-menu';
+
+// Click anywhere
+document.addEventListener('click', (e) => {
+  const circleBtn = e.target.closest('.circle-button');
+
+  if (circleBtn) {
+    // Close all menus first
+    document.querySelectorAll(DROPDOWN_SELECTOR).forEach(m => m.style.display = 'none');
+
+    // Find the menu inside or next to the button
+    let menu =
+      circleBtn.querySelector(DROPDOWN_SELECTOR) ||
+      (circleBtn.nextElementSibling && circleBtn.nextElementSibling.matches(DROPDOWN_SELECTOR)
+        ? circleBtn.nextElementSibling
+        : null);
+
+    if (menu) {
+      // Toggle: show if hidden, hide if visible
+      const isHidden = getComputedStyle(menu).display === 'none';
+      menu.style.display = isHidden ? 'block' : 'none';
+    }
+
+    // Don't let this click fall through to the "outside click" closer
+    e.stopPropagation();
+    return;
+  }
+
+  // Clicked outside any dropdown → close all
+  if (!e.target.closest(DROPDOWN_SELECTOR)) {
+    document.querySelectorAll(DROPDOWN_SELECTOR).forEach(m => m.style.display = 'none');
+  }
+});
+
+
   if (searchTrigger && searchPopup && closePopup) {
     searchTrigger.addEventListener('click', () => {
       searchPopup.style.display = 'block';
