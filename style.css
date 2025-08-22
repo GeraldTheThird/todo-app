@@ -1475,6 +1475,14 @@ body {
   font-weight: 400;
 }
 
+#meet-thingsPage {
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* ← blocks left/right scrolling */
+  min-height: 100vh;
+  background: white;
+}
+
 .top-section {
   display: flex;
   flex-direction: column;
@@ -1624,40 +1632,41 @@ body {
 .guide-title {
   font-size: 18px;
   font-weight: 700;
+  margin-bottom: 7px;
 }
 
- .guide-divider {
+.guide-divider {
   border-bottom: 1px solid #e0e0e0;
   width: 80%;
-} 
+}
 
-/*.todo-list {
+.todo-list {
   list-style: none;
   margin: 0;
-  padding: 4px 0 0;
+  padding: 4px 0px;
 }
 
 .todo-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 0;
+  padding: 10px 21px;
 }
 
 .check-empty {
-  width: 22px;
-  height: 22px;
-  flex: 0 0 22px;
-  border: 2px solid var(--checkbox);
-  border-radius: 6px;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #959595d3;
+  border-radius: 5px;
   display: inline-block;
 }
 
 .todo-text {
-  color: var(--text);
+  color: #0b0b0c;
   font-size: 16px;
   line-height: 1.25;
   flex: 1 1 auto;
+  margin-bottom: 4px;
 }
 
 .doc-icon {
@@ -1679,7 +1688,7 @@ body {
   opacity: .9;
 }
 
-/* .guide-section+.guide-section {
+.guide-section+.guide-section {
   margin-top: 28px;
 }
 
@@ -1689,4 +1698,4 @@ body {
 
 .todo-row:hover .todo-text {
   color: #2c3137;
-} */
+}

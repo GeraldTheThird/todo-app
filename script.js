@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Drop-down show/toggle ===
 
 // selector covers either spelling
-const DROPDOWN_SELECTOR = '.drop-down-menu, .dropdown-menu';
+const DROPDOWN_SELECTOR = '.dropdown-menu';
 
 // Click anywhere
 document.addEventListener('click', (e) => {
